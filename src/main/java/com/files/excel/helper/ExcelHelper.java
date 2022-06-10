@@ -15,7 +15,7 @@ import com.files.excel.entity.ExcelModel;
 
 public class ExcelHelper {
 	public static String TYPE = "excelUpload";
-	  static String[] HEADERs = { "Id", "Nombre", "Apellido", "Estado" };
+	  static String[] HEADERs = { "Id", "Nombre", "Apellido", "Cuit" };
 	  static String SHEET = "ExcelModel";
 	  public static boolean hasExcelFormat(MultipartFile file) {
 	    if (!TYPE.equals(file.getContentType())) {
@@ -38,7 +38,7 @@ public class ExcelHelper {
 	          continue;
 	        }
 	        Iterator<Cell> cellsInRow = currentRow.iterator();
-	        ExcelModel excelmodel = new ExcelModel(rowNumber, SHEET, SHEET, false);
+	        ExcelModel excelmodel = new ExcelModel(rowNumber, TYPE, SHEET, rowNumber);
 	        int cellIdx = 0;
 	        while (cellsInRow.hasNext()) {
 	          Cell currentCell = cellsInRow.next();
@@ -53,7 +53,7 @@ public class ExcelHelper {
 	        	  excelmodel.setApellido(currentCell.getStringCellValue());
 	            break;
 	          case 3:
-	        	  excelmodel.setEstado(currentCell.getBooleanCellValue());
+	        	  excelmodel.setCuit((long) currentCell.getNumericCellValue());
 	            break;
 	          default:
 	            break;

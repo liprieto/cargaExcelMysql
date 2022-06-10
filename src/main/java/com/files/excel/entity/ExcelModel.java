@@ -17,14 +17,14 @@ public class ExcelModel {
 	private String nombre;
 	@Column(name = "apellido")
 	private String apellido;
-	@Column(name = "estado")
-	private boolean estado;
+	@Column(name = "cuit")
+	private long cuit;
 
-	public ExcelModel(long id, String nombre, String apellido, boolean estado) {
+	public ExcelModel(long id, String nombre, String apellido, long cuit) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.estado = estado;
+		this.cuit = cuit;
 	}
 
 	public long getId() {
@@ -51,17 +51,17 @@ public class ExcelModel {
 		this.apellido = apellido;
 	}
 
-	public boolean isEstado() {
-		return estado;
+	public long isCuit() {
+		return cuit;
 	}
 
-	public void setEstado(boolean estado) {
-		this.estado = estado;
+	public void setCuit(long cuit) {
+		this.cuit = cuit;
 	}
 
 	@Override
 	public String toString() {
-		return "ExcelModel [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", estado=" + estado + "]";
+		return "ExcelModel [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cuit=" + cuit + "]";
 	}
 }
 	  
